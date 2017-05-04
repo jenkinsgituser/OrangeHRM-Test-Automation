@@ -12,6 +12,10 @@ RUN useradd -m firefox
 #copy oracle sources
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
 
+#install essential tools
+RUN apt-get update && apt-get install \
+    wget
+
 #copy jenkins sources
 RUN wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key --no-check-certificate | sudo apt-key add  \
 	&& sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
