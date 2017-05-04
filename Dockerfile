@@ -13,7 +13,7 @@ RUN useradd -m firefox
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
 
 #install essential tools
-RUN apt-get update && apt-get install \
+RUN apt-get update && apt-get -y install \
     wget
 
 #copy jenkins sources
