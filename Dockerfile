@@ -17,7 +17,7 @@ RUN apt-get update && apt-get -y install \
     wget
 
 #copy jenkins sources
-RUN wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key --no-check-certificate | sudo apt-key add  \
+RUN wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key --no-check-certificate | sudo apt-key add -  \
 	&& sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886 \
